@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./App.css";
 import GoalList from "./components/GoalList/GoalList";
 import NewGoal from "./components/NewGoal/NewGoal";
@@ -6,15 +6,14 @@ import NewGoal from "./components/NewGoal/NewGoal";
 // 함수형 컴포넌트를 사용
 
 const App = () => {
-  const courseGoals = [
+  const [courseGoals, setCourseGoals] = useState([
     { id: "cg1", text: "강의 수료하기" },
     { id: "cg2", text: "강의 핵심 주제 학습하기" },
-    { id: "cg3", text: "질의응답 섹션에서 질문 많이 하기" },
-  ];
+    { id: "cg3", text: "질의응답 섹션에서 질문 많이 하기" }
+  ]);
 
   const addNewGoalHandler = (newGoal) => {
-    courseGoals.push(newGoal);
-    console.log(courseGoals);
+    setCourseGoals(courseGoals.concat(newGoal));
   };
 
   return (

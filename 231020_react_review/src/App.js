@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./App.css";
 import GoalList from "./components/GoalList/GoalList";
 import NewGoal from "./components/NewGoal/NewGoal";
@@ -9,11 +9,14 @@ const App = () => {
   const [courseGoals, setCourseGoals] = useState([
     { id: "cg1", text: "강의 수료하기" },
     { id: "cg2", text: "강의 핵심 주제 학습하기" },
-    { id: "cg3", text: "질의응답 섹션에서 질문 많이 하기" }
+    { id: "cg3", text: "질의응답 섹션에서 질문 많이 하기" },
   ]);
 
   const addNewGoalHandler = (newGoal) => {
-    setCourseGoals(courseGoals.concat(newGoal));
+    // setCourseGoals(courseGoals.concat(newGoal));
+
+    // 상태 업데이트가 이전 상태의 데이터에 의존할 때 사용하면 안전함
+    setCourseGoals((prevCourseGoals) => prevCourseGoals.concat(newGoal));
   };
 
   return (

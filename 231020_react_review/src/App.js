@@ -7,14 +7,20 @@ import NewGoal from "./components/NewGoal/NewGoal";
 
 const App = () => {
   const courseGoals = [
-    {id: 'cg1', text: '강의 수료하기'},
-    {id: 'cg2', text: '강의 핵심 주제 학습하기'},
-    {id: 'cg3', text: '질의응답 섹션에서 질문 많이 하기'}];
+    { id: "cg1", text: "강의 수료하기" },
+    { id: "cg2", text: "강의 핵심 주제 학습하기" },
+    { id: "cg3", text: "질의응답 섹션에서 질문 많이 하기" },
+  ];
+
+  const addNewGoalHandler = (newGoal) => {
+    courseGoals.push(newGoal);
+    console.log(courseGoals);
+  };
 
   return (
     <div className="course-goals">
       <h2>강의 과정 목표</h2>
-      <NewGoal />
+      <NewGoal onAddGoal={addNewGoalHandler} />
       <GoalList goals={courseGoals} />
     </div>
   );

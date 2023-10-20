@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
-import GoalList from "./components/GoalList";
+import GoalList from "./components/GoalList/GoalList";
+import NewGoal from "./components/NewGoal/NewGoal";
 
 // 함수형 컴포넌트를 사용
 
@@ -13,6 +14,7 @@ const App = () => {
   return (
     <div className="course-goals">
       <h2>강의 과정 목표</h2>
+      <NewGoal />
       <GoalList goals={courseGoals} />
     </div>
   );
